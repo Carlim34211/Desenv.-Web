@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>calculadora</h1>
+    <p id="resultado"></p>
+    <script>
+        let num1 = parseFloat(prompt("Digite o primeiro numero:"));
+        let num2 = parseFloat(prompt("Digite o segundo numero:"));
+
+        let operacao = prompt("Qual operação deseja realizar?(+,-,*;/)" );
+
+        let resultado;
+
+        if(operacao ==="+"){
+            resultado = num1 + num2;
+        }else if(operacao === "-"){
+            resultado = num1 - num2;
+        }else if (operacao === "*"){
+            resultado = num1 * num2;
+        }else if(operacao === "/"){
+            if(num2 !==0){
+                resultado = num1 /num2;
+            }else{
+                resultado= "ERRO:divisao por zero";
+            }
+        }else{
+            resultado="opereçao invalidade!";
+        }
+        
+        document.getElementById("resultado").innerHTML= "resultado"+resultado;
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Verifica se o numero e Par ou Impar</h1>
+    <p id="resultado"></p>
+    <script>
+        let numero = parseInt(prompt("informe um numero:"));
+
+        if(numero % 2 ===0 ){
+            document.getElementById("resultado").innerHTML="o numero: "+numero+" e par";
+
+        }else{
+            document.getElementById("resultado").innerHTML="o numero: "+numero+" e impar";
+
+        }
+
+        
+
+    </script>
+</body>
+</html>
