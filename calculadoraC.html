@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+    body {
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculadora {
+      background-color: #1e1e1e;
+      padding: 29px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.7);
+    }
+
+    .tela {
+      width: 100%;
+      height: 45px;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+      text-align: right;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2c2c2c;
+      color: #fff;
+    }
+
+    .botoes {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      grid-gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      height: 60px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    .igual {
+      grid-column: span 2;
+      background-color: #007acc;
+    }
+
+    .igual:hover {
+      background-color: #005f99;
+    }
+
+    .limpar {
+      background-color: #d32f2f;
+    }
+
+    .limpar:hover {
+      background-color: #a30000;
+    }
+
+    .deletar {
+      background-color: #f57c00;
+    }
+
+    .deletar:hover {
+      background-color: #c45a00;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculadora">
+    <input type="text" class="tela" id="tela" disabled>
+    <div class="botoes">
+      <button class="limpar">C</button>
+      <button class="deletar">DEL</button>
+      <button>/</button>
+      <button>*</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>-</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>+</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+       <button>.</button>
+      <button class="igual">=</button>
+
+      
+      <button>0</button>
+    </div>
+  </div>
+
+  <script>
+    const tela = document.getElementById('tela');
+    const botoes = document.querySelectorAll('button');
+
+    botoes.forEach(botao => {
+      botao.addEventListener('click', () => {
+        if (botao.classList.contains('limpar')) {
+          tela.value = '';
+        } else if (botao.classList.contains('deletar')) {
+          tela.value = tela.value.slice(0, -1);
+        } else if (botao.classList.contains('igual')) {
+          try {
+            tela.value = eval(tela.value);
+          } catch {
+            tela.value = 'Erro';
+          }
+        } else {
+          tela.value += botao.textContent;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
